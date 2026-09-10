@@ -27,6 +27,9 @@ public class LetterListFactory implements RemoteViewsService.RemoteViewsFactory 
     public void onDataSetChanged() { }
 
     @Override
+    public void onDestroy() { }
+
+    @Override
     public int getCount() {
         return letters.size();
     }
