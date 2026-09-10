@@ -40,6 +40,9 @@ public class NotificationListFactory implements RemoteViewsService.RemoteViewsFa
     }
 
     @Override
+    public void onDestroy() { }
+
+    @Override
     public int getCount() {
         return items.size();
     }
