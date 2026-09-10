@@ -10,10 +10,14 @@ public class PinyinUtil {
             if (String.valueOf(firstChar).matches("[a-zA-Z]")) {
                 return String.valueOf(Character.toUpperCase(firstChar));
             } else {
-                Transliterator transliterator = Transliterator.getInstance("Han-Latin");
-                String pinyin = transliterator.transform(String.valueOf(firstChar));
-                if (pinyin != null && !pinyin.isEmpty()) {
-                    return String.valueOf(Character.toUpperCase(pinyin.charAt(0)));
+                try {
+                    Transliterator transliterator = Transliterator.getInstance("Han-Latin");
+                    String pinyin = transliterator.transform(String.valueOf(firstChar));
+                    if (pinyin != null && !pinyin.isEmpty()) {
+                        return String.valueOf(Character.toUpperCase(pinyin.charAt(0)));
+                    }
+                } catch (Exception e) {
+                    // 忽略转换错误
                 }
                 return "#";
             }
