@@ -12,7 +12,7 @@ public class PinyinUtil {
             } else {
                 try {
                     Transliterator transliterator = Transliterator.getInstance("Han-Latin");
-                    String pinyin = transliterator.transform(String.valueOf(firstChar));
+                    String pinyin = transliterator.transliterate(String.valueOf(firstChar));
                     if (pinyin != null && !pinyin.isEmpty()) {
                         return String.valueOf(Character.toUpperCase(pinyin.charAt(0)));
                     }
